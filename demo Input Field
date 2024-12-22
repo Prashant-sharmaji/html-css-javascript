@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      input {
+        width: 200px;
+        height: 20px;
+        padding: 10px;
+      }
+      p {
+        display: none;
+        color: red;
+      }
+      #output {
+        color: green;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Input Field</h1>
+      <input
+        type="number"
+        oninput="inputRun()"
+        id="input"
+        placeholder="Enter Your Number"
+      />
+      <p id="para"></p>
+      <div id="output"></div>
+    </div>
+
+    <script>
+      function inputRun() {
+        const input = document.getElementById("input");
+        const para = document.getElementById("para");
+        const output = document.getElementById("output");
+        if (input.value < 0) {
+          para.style.display = "block";
+          para.innerHTML = "Enter positive nuber";
+        }
+        const number = Number(input.value);
+
+        if (number % 2 == 0) {
+          output.style.display = " block";
+          output.textContent = `Next 3 even number is ${number + 2}, ${
+            number + 4
+          }, ${number + 6} `;
+        } else if (number % 2 == !0) {
+          output.textContent = `Next 3 odd number is ${number + 2}, ${
+            number + 4
+          }, ${number + 6} `;
+        }
+        if (input.value === "") {
+          output.style.display = "none";
+          para.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
+
